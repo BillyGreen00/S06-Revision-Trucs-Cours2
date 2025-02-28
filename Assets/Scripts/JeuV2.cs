@@ -7,18 +7,19 @@ public class JeuV2 : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _etiquettePoints;
 
-    public int pointsJeu = 0;
+    public int tempsJeu = 0;
 
     void Start()
     {
-        pointsJeu = 0;
+       tempsJeu = 0;
+       InvokeRepeating("AugmenterPoints", 0f, 1f);
     }
 
     public void AugmenterPoints()
     {
         // Augmenter les points du jeu
-        pointsJeu++;
+        tempsJeu++;
         // Actualiser l'UI
-        _etiquettePoints.text = "$" + pointsJeu.ToString();
+        _etiquettePoints.text = tempsJeu.ToString() + "s"; 
     }
 }
